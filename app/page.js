@@ -1,68 +1,89 @@
-import {
-	Card,
-	CardContent,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/components/ui/card";
+import React from "react";
 
-const Home = async () => {
-	const allImages = await fetch(
-		`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image/?max_results=500`,
-		{
-			headers: {
-				Authorization: `Basic ${Buffer.from(
-					process.env.CLOUDINARY_API_KEY +
-						":" +
-						process.env.CLOUDINARY_API_SECRET
-				).toString("base64")}`,
-			},
-		}
-	).then((response) => response.json());
-	const images = allImages.resources.filter((image) => {
-		return image.folder === "Food SVG" ? image : "";
-	});
-	// console.log(images);
-
-	const cleanID = (id) => {
-		const splitWord = id.split("/");
-		const wordEnd = splitWord[1].split("_");
-		const result = wordEnd[0];
-		return result;
-	};
-
+const HomePage = () => {
 	return (
-		<main className="flex min-h-screen flex-col items-center justify-between">
-			<div className="container grid grid-cols-3 gap-3">
-				{images.map((image) => (
-					<Card
-						key={image.public_id}
-						className="flex flex-col items-center justify-center p-2"
-					>
-						<img
-							src={image.secure_url}
-							alt={image.public_id}
-							className="h-8"
-						/>
-						<div className="text-center text-xs mt-2 capitalize italic pointer-events-none">
-							{cleanID(image.public_id)}
-						</div>
-						{/* <div>{image.public_id}</div> */}
-					</Card>
-				))}
+		<div className="container">
+			<div className="font-title text-4xl  font-black">Lucelle App</div>
+			<div className="colors grid gap-3">
+				<div className="flex item-center gap-2">
+					<div className="w-48">-background</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-background"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-card</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-card"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-card-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-card-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-popover</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-popover"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-popover-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-popover-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-primary</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-primary"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-primary-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-primary-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-secondary</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-secondary"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-secondary-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-secondary-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-muted</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-muted"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-muted-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-muted-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-accent</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-accent"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-accent-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-accent-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-destructive</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-destructive"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-destructive-foreground</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-destructive-foreground"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-border</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-border"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-input</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-input"></div>
+				</div>
+				<div className="flex item-center gap-2">
+					<div className="w-48">-ring</div>
+					<div className="w-7 h-7 border-2 border-red-500 bg-ring"></div>
+				</div>
 			</div>
-			{/* <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div> */}
-		</main>
+		</div>
 	);
 };
-export default Home;
+
+export default HomePage;

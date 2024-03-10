@@ -1,8 +1,11 @@
 "use client";
 
-import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
-import { useTheme } from "next-themes";
+// import { MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import { RiMoonClearLine } from "react-icons/ri";
+import { FiSun } from "react-icons/fi";
+import { BsMoonStarsFill } from "react-icons/bs";
 
+import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
 export function ModeToggle() {
@@ -12,11 +15,11 @@ export function ModeToggle() {
 		<Button
 			variant="outline"
 			size="icon"
-			className="border-0"
+			className="w-auto border-0 bg-transparent hover:bg-transparent"
 			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 		>
-			<SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
-			<MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+			<FiSun className="h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+			<RiMoonClearLine className="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
 			<span className="sr-only">Changer de thème</span>
 		</Button>
 	);
