@@ -21,6 +21,7 @@ module.exports = {
 				title: ["var(--title-font)"],
 			},
 			colors: {
+				textcolor: "hsl(var(--textcolor))",
 				border: "hsl(var(--border))",
 				input: "hsl(var(--input))",
 				ring: "hsl(var(--ring))",

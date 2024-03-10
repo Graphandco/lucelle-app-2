@@ -1,6 +1,5 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Inter } from "next/font/google";
-import { Raleway } from "next/font/google";
 import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
@@ -16,7 +15,6 @@ const bebas = Bebas_Neue({
 	display: "swap",
 	variable: "--title-font",
 });
-const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata = {
 	title: "Lucelle App",

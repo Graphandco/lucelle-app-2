@@ -26,7 +26,7 @@ const Header = () => {
 		{
 			name: "Comptes",
 			href: "/comptes",
-			icon: <PiWallet className="h-7 w-7" />,
+			icon: <PiWallet className="h-6 w-6" />,
 		},
 		{
 			name: "Noes",
@@ -37,13 +37,13 @@ const Header = () => {
 
 	return (
 		<>
-			<div className="container py-1 bg-background">
+			<div className="container pt-1 bg-background">
 				<div className="flex justify-between items-center">
 					<div className="flex items-center gap-4">
 						<div className="logo-wrapper">
 							<Image src="/logo.png" width={35} height={35} />
 						</div>
-						<div className="font-title text-2xl font-black">
+						<div className="font-title text-3xl font-black text-foreground">
 							Lucelle App
 						</div>
 					</div>
@@ -51,8 +51,8 @@ const Header = () => {
 				</div>
 			</div>
 
-			<div className="container flex justify-between items-center bg-background mb-5 pt-1 sticky top-0 z-10 border-b border-white/20">
-				<div className="flex justify-between items-center grow">
+			<div className="container flex justify-between items-center pt-2 bg-background sticky top-0 z-10 border-b border-foreground/20">
+				<div className="flex justify-between items-center grow translate-y-[1px]">
 					{menuItems.map((item) => (
 						<Link
 							href={item.href}

@@ -2,8 +2,10 @@ import React from "react";
 
 const HomePage = () => {
 	return (
-		<div className="container">
-			<div className="font-title text-4xl  font-black">Lucelle App</div>
+		<div className="container mt-5">
+			<div className="font-title text-4xl mb-4 font-black text-foreground">
+				Lucelle App
+			</div>
 			<div className="colors grid gap-3">
 				<div className="flex item-center gap-2">
 					<div className="w-48">-background</div>
