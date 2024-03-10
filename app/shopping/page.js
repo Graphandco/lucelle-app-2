@@ -36,7 +36,7 @@ const Home = async () => {
 		<main className="flex min-h-screen flex-col items-center justify-between">
 			<div className="container mt-5">
 				<h1 className="font-title text-4xl mb-4 font-black text-foreground">
-					Lucelle App
+					Lucelle App -
 				</h1>
 				<div className="grid grid-cols-3 gap-3">
 					{images.map((image) => (
