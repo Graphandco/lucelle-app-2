@@ -2,7 +2,7 @@ import React from "react";
 
 const HomePage = () => {
 	return (
-		<div className="container mt-5">
+		<div className="mt-5">
 			<div className="font-title text-4xl mb-4 font-black text-foreground">
 				Lucelle App
 			</div>

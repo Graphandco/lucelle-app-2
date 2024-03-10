@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
+import Footer from "@/components/Footer";
 
 const inter = Inter({
 	display: "swap",
@@ -33,7 +34,8 @@ export default function RootLayout({ children }) {
 					// disableTransitionOnChange
 				>
 					<Header />
-					{children}
+					<main className="container mt-5">{children}</main>
+					<Footer />
 				</ThemeProvider>
 			</body>
 		</html>

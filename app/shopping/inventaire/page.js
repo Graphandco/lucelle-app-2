@@ -1,4 +1,4 @@
-const ShoppingPage = async () => {
+const ShoppingInventairePage = async () => {
 	const allImages = await fetch(
 		`https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/resources/image/?max_results=500`,
 		{
@@ -24,9 +24,24 @@ const ShoppingPage = async () => {
 	};
 
 	return (
-		<div className="">
-			<div>Liste</div>
+		<div className="grid grid-cols-4 gap-2">
+			{images.map((image) => (
+				<div
+					key={image.public_id}
+					className="flex flex-col items-center justify-center p-1 border border-foreground/20 rounded-2xl"
+				>
+					<img
+						src={image.secure_url}
+						alt={image.public_id}
+						className="h-8 w-8"
+					/>
+					<div className="text-center text-xs break-all mt-1 capitalize pointer-events-none">
+						{cleanID(image.public_id)}
+					</div>
+					{/* <div>{image.public_id}</div> */}
+				</div>
+			))}
 		</div>
 	);
 };
-export default ShoppingPage;
+export default ShoppingInventairePage;

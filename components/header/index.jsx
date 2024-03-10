@@ -5,6 +5,7 @@ import Image from "next/image";
 import { FiShoppingCart, FiHome } from "react-icons/fi";
 import { PiWallet } from "react-icons/pi";
 import { CgNotes } from "react-icons/cg";
+import { LuWallet } from "react-icons/lu";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -26,7 +27,7 @@ const Header = () => {
 		{
 			name: "Comptes",
 			href: "/comptes",
-			icon: <PiWallet className="h-6 w-6" />,
+			icon: <LuWallet className="h-6 w-6" />,
 		},
 		{
 			name: "Noes",
@@ -37,7 +38,7 @@ const Header = () => {
 
 	return (
 		<>
-			<div className="container pt-1 bg-background">
+			<div className="px-6 pt-3 bg-background">
 				<div className="flex justify-between items-center">
 					<div className="flex items-center gap-4">
 						<div className="logo-wrapper">
@@ -51,8 +52,8 @@ const Header = () => {
 				</div>
 			</div>
 
-			<div className="container flex justify-between items-center pt-2 bg-background sticky top-0 z-10 border-b border-foreground/20">
-				<div className="flex justify-between items-center grow translate-y-[1px]">
+			<div className="container flex justify-between items-center pt-1 bg-background sticky top-0 z-10 border-b border-card">
+				<div className="flex justify-between items-center grow translate-y-[1px] pr-3">
 					{menuItems.map((item) => (
 						<Link
 							href={item.href}
@@ -63,7 +64,7 @@ const Header = () => {
 								className={`border-b-2 py-2 px-5 inline-block transition-all ${
 									pathname === item.href
 										? "text-primary border-primary"
-										: "text-foreground border-transparent"
+										: " border-transparent"
 								}`}
 							>
 								{item.icon}

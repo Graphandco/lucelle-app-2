@@ -15,7 +15,7 @@ export function ModeToggle() {
 		<Button
 			variant="outline"
 			size="icon"
-			className="w-auto border-0 bg-transparent hover:bg-transparent"
+			className="w-auto border-0 bg-transparent hover:bg-transparent -translate-y-1"
 			onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
 		>
 			<FiSun className="h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
