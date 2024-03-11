@@ -44,7 +44,7 @@ const Header = () => {
 						<div className="logo-wrapper">
 							<Image src="/logo.png" width={35} height={35} />
 						</div>
-						<div className="font-title text-3xl font-black text-foreground">
+						<div className="font-title text-3xl font-black text-primary">
 							Lucelle App
 						</div>
 					</div>

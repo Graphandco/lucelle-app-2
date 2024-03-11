@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+   provider = "prisma-client-js"
+}
+
+datasource db {
+   provider = "mongodb"
+   url      = env("DATABASE_URL")
+}
+
+model Account {
+   id                String  @id @default(auto()) @map("_id") @db.ObjectId
+   userId            String  @db.ObjectId
+   type              String
+   provider          String
+   providerAccountId String
+   refresh_token     String?
+   access_token      String?
+   expires_at        Int?
+   token_type        String?
+   scope             String?
+   id_token          String?
+   session_state     String?
+
+   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+   @@unique([provider, providerAccountId])
+}
+
+model Session {
+   id           String   @id @default(auto()) @map("_id") @db.ObjectId
+   sessionToken String   @unique
+   userId       String   @db.ObjectId
+   expires      DateTime
+   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model User {
+   id             String       @id @default(auto()) @map("_id") @db.ObjectId
+   name           String?
+   hashedPassword String?
+   email          String?      @unique
+   emailVerified  DateTime?
+   image          String?
+   accounts       Account[]
+   sessions       Session[]
+   tobuy          CourseItem[] @relation("tobuy")
+   incart         CourseItem[] @relation("incart")
+}
+
+model CourseItem {
+   id        String   @id @default(auto()) @map("_id") @db.ObjectId
+   name      String?
+   image     String?
+   tobuy     User     @relation("tobuy", fields: [tobuyId], references: [id])
+   tobuyId   String   @db.ObjectId
+   incart    User     @relation("incart", fields: [incartId], references: [id])
+   incartId  String   @db.ObjectId
+   createdAt DateTime @default(now())
+   updatedAt DateTime @updatedAt
+}

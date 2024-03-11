@@ -1,10 +1,40 @@
-import React from "react";
+"use client";
+import { Button } from "@/components/ui/button";
+import { useSession } from "next-auth/react";
+import { signOut } from "next-auth/react";
+import Link from "next/link";
+import { toast } from "sonner";
 
 const HomePage = () => {
+	const { data: session, status } = useSession();
+	console.log(status);
+
+	const handleSignout = () => {
+		signOut({ redirect: false });
+		toast("Déconnexion réussie !");
+	};
+
 	return (
 		<div className="mt-5">
 			<div className="font-title text-4xl mb-4 font-black text-foreground">
 				Lucelle App
+			</div>
+			<div className="mb-2 text-center text-foreground">
+				{status === "authenticated" ? (
+					<>
+						<div>Connecté sous {session?.user?.name}</div>
+						<Button onClick={() => handleSignout()}>
+							Déconnexion
+						</Button>
+					</>
+				) : (
+					<>
+						<div>Vous n'êtes pas connecté</div>
+						<Button>
+							<Link href="/login">Se connecter</Link>
+						</Button>
+					</>
+				)}
 			</div>
 			<div className="colors grid gap-3">
 				<div className="flex item-center gap-2">

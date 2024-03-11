@@ -54,5 +54,8 @@
 	}
 	body {
 		@apply bg-background text-textcolor;
+		min-height: 100dvh;
+		display: flex;
+		flex-direction: column;
 	}
 }

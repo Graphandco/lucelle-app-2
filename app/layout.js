@@ -4,6 +4,8 @@ import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
+import AuthProvider from "@/context/AuthContext";
 
 const inter = Inter({
 	display: "swap",
@@ -33,9 +35,12 @@ export default function RootLayout({ children }) {
 					enableSystem
 					// disableTransitionOnChange
 				>
-					<Header />
-					<main className="container mt-5">{children}</main>
-					<Footer />
+					<AuthProvider>
+						<Header />
+						<main className="container mt-5 grow">{children}</main>
+						<Footer />
+						<Toaster />
+					</AuthProvider>
 				</ThemeProvider>
 			</body>
 		</html>
