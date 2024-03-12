@@ -34,6 +34,21 @@ const ShoppingListLayout = ({ children }) => {
 							Inventaire
 						</Badge>
 					</Link>
+					<Link
+						className="text-xs"
+						href="/shopping/inventaire/add-item"
+					>
+						<Badge
+							variant={
+								pathname === "/shopping/inventaire/add-item"
+									? ""
+									: "outline"
+							}
+							className="text-xs"
+						>
+							+
+						</Badge>
+					</Link>
 				</nav>
 			</div>
 			{children}

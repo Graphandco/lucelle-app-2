@@ -42,7 +42,12 @@ const Header = () => {
 				<div className="flex justify-between items-center">
 					<div className="flex items-center gap-4">
 						<div className="logo-wrapper">
-							<Image src="/logo.png" width={35} height={35} />
+							<Image
+								src="/logo.png"
+								width={35}
+								height={35}
+								alt="Logo Lucelle App"
+							/>
 						</div>
 						<div className="font-title text-3xl font-black text-primary">
 							Lucelle App

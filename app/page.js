@@ -7,10 +7,9 @@ import { toast } from "sonner";
 
 const HomePage = () => {
 	const { data: session, status } = useSession();
-	console.log(status);
 
-	const handleSignout = () => {
-		signOut({ redirect: false });
+	const handleSignout = async () => {
+		await signOut({ redirect: false });
 		toast("Déconnexion réussie !");
 	};
 

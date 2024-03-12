@@ -12,7 +12,7 @@ const UserMenu = () => {
 				src={`https://www.gravatar.com/avatar/${md5(
 					session?.user?.email ? session.user.email : ""
 				)}?d=mm`}
-				alt="@shadcn"
+				alt="Avatar de l'utilisateur"
 			/>
 			<AvatarFallback>CN</AvatarFallback>
 		</Avatar>

@@ -5,14 +5,15 @@ import prisma from "@/lib/prismadb";
 export async function POST(request, response) {
 	try {
 		const body = await request.json();
-		const { name, author } = body;
+		// const { client, content, completed, createdAt } = body;
 
-		const customer = await prisma.note.create({
+		const customer = await prisma.CourseItem.create({
 			data: {
-				name,
-				author,
-				important: false,
-				finished: false,
+				name: "nameItem",
+				image: "imageItem",
+				// toBuyForUser: "reggiooo",
+				// usersTobuyFor: [1, 2],
+				// usersInCart: [1, 2],
 			},
 		});
 

@@ -46,18 +46,24 @@ model User {
    image          String?
    accounts       Account[]
    sessions       Session[]
-   tobuy          CourseItem[] @relation("tobuy")
-   incart         CourseItem[] @relation("incart")
+   tobuyforusers  CourseItem[]
 }
 
+// Define the CourseItem model
 model CourseItem {
+   id             String  @id @default(auto()) @map("_id") @db.ObjectId
+   name           String
+   image          String? // You can adjust this field based on your requirements
+   toBuyForUser   User?   @relation(fields: [toBuyForUserId], references: [id], onDelete: Cascade)
+   toBuyForUserId String? @db.ObjectId
+}
+
+model Note {
    id        String   @id @default(auto()) @map("_id") @db.ObjectId
-   name      String?
-   image     String?
-   tobuy     User     @relation("tobuy", fields: [tobuyId], references: [id])
-   tobuyId   String   @db.ObjectId
-   incart    User     @relation("incart", fields: [incartId], references: [id])
-   incartId  String   @db.ObjectId
+   name      String
+   author    String
+   important Boolean
+   finished  Boolean
    createdAt DateTime @default(now())
    updatedAt DateTime @updatedAt
 }

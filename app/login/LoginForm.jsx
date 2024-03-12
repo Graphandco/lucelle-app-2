@@ -13,6 +13,7 @@ export default function LoginForm() {
 	const { data: session, status } = useSession();
 	const router = useRouter();
 
+	console.log(status);
 	const onSubmit = async (formData) => {
 		const [email, password] = [formData.email, formData.password];
 		try {
@@ -22,13 +23,15 @@ export default function LoginForm() {
 				redirect: false,
 			});
 
+			// console.log(status);
+
 			if (res?.error == null) {
 				toast("Connexion réussie !", {
 					// description: `Bienvenue, ${session?.user?.name}`,
 				});
-				// setTimeout(() => {
-				// }, 1000);
-				router.push("/");
+				setTimeout(() => {
+					router.push("/");
+				}, 1000);
 			} else {
 				toast("⛔️ Identifiants incorrects ! ⛔️", {});
 
