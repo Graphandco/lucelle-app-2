@@ -13,7 +13,6 @@ export default function LoginForm() {
 	const { data: session, status } = useSession();
 	const router = useRouter();
 
-	console.log(status);
 	const onSubmit = async (formData) => {
 		const [email, password] = [formData.email, formData.password];
 		try {

@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { usePathname } from "next/navigation";
+import ShoppingMenu from "./ShoppingMenu";
 
 const ShoppingListLayout = ({ children }) => {
 	const pathname = usePathname();
@@ -13,7 +14,9 @@ const ShoppingListLayout = ({ children }) => {
 				<h1 className="font-title text-4xl font-black text-foreground">
 					Courses
 				</h1>
-				<nav className="flex items-center gap-2">
+				<ShoppingMenu />
+
+				{/* <nav className="flex items-center gap-2">
 					<Link className="text-xs" href="/shopping">
 						<Badge
 							variant={pathname === "/shopping" ? "" : "outline"}
@@ -49,7 +52,7 @@ const ShoppingListLayout = ({ children }) => {
 							+
 						</Badge>
 					</Link>
-				</nav>
+				</nav> */}
 			</div>
 			{children}
 		</>
