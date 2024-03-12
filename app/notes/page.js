@@ -39,7 +39,7 @@ const Notes = () => {
 				Notes
 			</div>
 			<div className="grid gap-4 mt-5">
-				{notes.map((note) => (
+				{notes?.map((note) => (
 					<div
 						key={note.id}
 						className="flex justify-between items-center border-b border-card py-1"
